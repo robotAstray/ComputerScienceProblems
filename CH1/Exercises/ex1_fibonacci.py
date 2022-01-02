@@ -1,6 +1,5 @@
-#/usr/bin/python
+# #/usr/bin/python
 import argparse
-
 
 def fibonacci(number: int) -> int:
     if number==0: return number
@@ -9,7 +8,6 @@ def fibonacci(number: int) -> int:
     for _ in range(1, number):
         last, next = next, last + next 
     return next
-
 
 def main():
     parser = argparse.ArgumentParser(description="Command Line Fibonacci Number Generator")
@@ -22,3 +20,5 @@ def main():
 
 if __name__ =="__main__":
     main()
+
+
