@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#! /usr/bin/python
+# Usage: ./ex4one_time_pad_image.py --img /path/to/img
+# Maintainer: robotastray
+#Copyright: robotAstray (c)
 import argparse
 import base64
 from typing import Tuple
@@ -61,6 +64,6 @@ if __name__ == "__main__":
     #convert base64 to image
     base64_to_image(result, img_type)
     # plot/display image
-    img = mp.imread("decoded image"+img_type)
+    img = mp.imread("decoded image."+img_type)
     imgplot = plt.imshow(img)
     plt.show()
