@@ -12,6 +12,7 @@ import matplotlib.image as mpimg
 
 
 def base64_to_image(image_base64: str, img_type: str):
+    """Convert from base64 to image"""
     decodedimg = open("decoded image."+img_type, 'wb')
     decodedimg.write(base64.b64decode(image_base64))
     decodedimg.close
