@@ -10,25 +10,6 @@ import imghdr
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-def random_key(length: int) -> int:
-    tb: bytes = token_bytes(length)
-    return int.from_bytes(tb, "big")
-
-def encrypt(original_base64: str) -> Tuple[int, int]:
-    dummy: int = random_key(len(original_base64))
-    original_key: int = int.from_bytes(original_base64, "big")
-    encrypted: int = original_key ^ dummy
-    return dummy, encrypted
-
-def decrypt(key1: int, key2: int) -> str:
-    decrypted: int = key1 ^ key2 
-    temp: bytes = decrypted.to_bytes((decrypted.bit_length()+7)//8, "big")
-    return temp.decode()
-
-def image_to_base64(img) -> str:
-    with open(img, "rb") as image_string:
-         image_base64 = base64.b64encode(image_string.read())
-    return image_base64
 
 def base64_to_image(image_base64: str, img_type: str):
     decodedimg = open("decoded image."+img_type, 'wb')
@@ -37,8 +18,32 @@ def base64_to_image(image_base64: str, img_type: str):
     return decodedimg
  
 def check_image_type(image) -> str:
+    """Check image type (e.g. .png .jpeg)"""
     img_type = imghdr.what(image)
     return img_type
+
+def decrypt(key1: int, key2: int) -> str:
+    """Decrypt data using XOR operation"""
+    decrypted: int = key1 ^ key2 
+    temp: bytes = decrypted.to_bytes((decrypted.bit_length()+7)//8, "big")
+    return temp.decode()
+
+def random_key(length: int) -> int:
+    tb: bytes = token_bytes(length)
+    return int.from_bytes(tb, "big")
+
+def encrypt(original_base64: str) -> Tuple[int, int]:
+    """Encrypt data using XOR operation"""
+    dummy: int = random_key(len(original_base64))
+    original_key: int = int.from_bytes(original_base64, "big")
+    encrypted: int = original_key ^ dummy
+    return dummy, encrypted
+
+def image_to_base64(img) -> str:
+    """Convert image to base64"""
+    with open(img, "rb") as image_string:
+         image_base64 = base64.b64encode(image_string.read())
+    return image_base64
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
