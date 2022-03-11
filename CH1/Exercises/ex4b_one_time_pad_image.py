@@ -1,4 +1,7 @@
-#!/usr/bin/python
+#! /usr/bin/python
+# Usage: ./one_time_pad+cipher.py --img /path/to/img
+# Maintainer: robotastray
+#Copyright: robotAstray (c)
 import argparse
 import base64
 from typing import Tuple
