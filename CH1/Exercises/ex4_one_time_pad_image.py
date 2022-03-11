@@ -27,12 +27,12 @@ def decrypt(key1: int, key2: int) -> str:
 
 def image_to_base64(img) -> str:
     with open(img, "rb") as image_string:
-         image_str = base64.b64encode(image_string.read())
-    return image_str
+         image_base64 = base64.b64encode(image_string.read())
+    return image_base64
 
-def base64_to_image(image_str: str, img_type: str):
+def base64_to_image(image_base64: str, img_type: str):
     decodedimg = open("decoded image."+img_type, 'wb')
-    decodedimg.write(base64.b64decode(image_str))
+    decodedimg.write(base64.b64decode(image_base64))
     decodedimg.close
     return decodedimg
  
