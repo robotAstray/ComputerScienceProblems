@@ -1,3 +1,7 @@
+# Maintainer: RobotAstray
+# Copyright (c) RobotAstray
+# Usage: python3 is_palindrome.py --phrase "enter your string here"
+
 import argparse
 import string
 
