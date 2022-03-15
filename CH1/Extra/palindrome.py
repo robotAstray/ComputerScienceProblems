@@ -10,7 +10,7 @@ def main():
     parser.add_argument("-phrase", action="store",dest="phrase", type=str, help="enter a phrase" )
     output = parser.parse_args()
     s = output.phrase
-    # strip all the spaces and punctation
+    # strip all the spaces and punctuation
     "".join(s.split())
     table = str.maketrans(dict.fromkeys(string.punctuation))
     s = s.translate(table) 
