@@ -11,8 +11,10 @@ def main():
     output = parser.parse_args()
     s = output.phrase
     # strip all the spaces and punctuation
-    "".join(s.split())
+    s = s.replace(' ','')
+    print(s)
     table = str.maketrans(dict.fromkeys(string.punctuation))
+    print(s)
     s = s.translate(table) 
     s = s.lower()
     print(is_palindrome(s))
